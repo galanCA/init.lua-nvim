@@ -52,4 +52,5 @@ return require('packer').startup(function(use)
 	  run = ":MasonUpdate" -- :MasonUpdate updates registry contents
   }
   use('theprimeagen/vim-be-good')
+
 end)
