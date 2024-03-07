@@ -5,14 +5,8 @@ return {
     -- or                              , branch = '0.1.x',
     dependencies = { 'nvim-lua/plenary.nvim' },
     keys = {
-        { "<leader>pf", "<cmd>Telescope find_files<cr>", "n" },
-        { "<C-p>", "<cmd>Telescope git_files<cr>", "n" },
+        { "<leader>pf", function() require("telescope.builtin").find_files() end, "n" },
+        { "<C-p>", function() require("telescope.builtin").git_files() end, "n" },
+        { "<leader>ps", function() require("telescope.builtin").grep_string({ search = vim.fn.input('Grep > ') }) end, "n" }, 
     },
-    config = function()
-        local builtin = require('telescope.builtin')
-
-        vim.keymap.set('n', '<leader>ps', function()
-            builtin.grep_string({ search = vim.fn.input("Grep > ") })
-        end)
-    end
 } 
