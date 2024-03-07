@@ -4,22 +4,15 @@ return {
     dependencies = { "nvim-lua/plenary.nvim" },
     keys = {
         {"<leader>a", function() require("harpoon"):list():append() end, "n"},
-        --{"<C-e>", function() require("harpoon").ui:toggle_quick_menu(require("harpoon"):list() ) end, "n"},
+        {"<C-e>", function() require("harpoon").ui:toggle_quick_menu(require("harpoon"):list() ) end, "n"},
+        {"<C-h>", function() require("harpoon"):list():select(1) end, "n"},
+        {"<C-t>", function() require("harpoon"):list():select(2) end, "n"},
+        {"<C-n>", function() require("harpoon"):list():select(3) end, "n"},
+        {"<C-s>", function() require("harpoon"):list():select(4) end, "n"},
     },
 
-    config = function() 
+    config = function()
         local harpoon = require("harpoon")
         harpoon:setup()
-
-        -- local mark = require("harpoon.mark")
-        --local ui = require("harpoon.ui")
-
-        --vim.keymap.set("n", "<leader>a", mark.add_file)
-        vim.keymap.set("n", "<C-e>", function() harpoon.ui:toggle_quick_menu(harpoon:list()) end )
-
-        vim.keymap.set("n", "<C-h>", function() harpoon:list():select(1) end)
-        vim.keymap.set("n", "<C-t>", function() harpoon:list():select(2) end)
-        vim.keymap.set("n", "<C-n>", function() harpoon:list():select(3) end)
-        vim.keymap.set("n", "<C-s>", function() harpoon:list():select(4) end)
     end
 }
