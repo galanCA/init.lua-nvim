@@ -21,7 +21,8 @@ return {
         require("mason-lspconfig").setup {
             ensure_installed = {
                 "lua_ls",
-                "gopls", "rust_analyzer",
+                "gopls",
+                "rust_analyzer",
                 --"tsserver",
             },
 
@@ -31,7 +32,29 @@ return {
                         on_attach = attach
                     }
                 end,
-            }
+                ["gopls"] = function ()
+                    print("load gopls")
+                    require("lspconfig").gopls.setup {
+                        on_attach = function()
+                            vim.keymaps.set("n", "K", vim.lsp.buf.hover, { buffer = 0 })
+                        end,
+                        capabilities = capabilities,
+                        cmd = {"gopls"},
+                        filetypes = { "go", "gomod", "gowork", "gotmpl" },
+                        root_dir = require("lspconfig/util").root_pattern("go.work", "go.mod", ".git"),
+                        docs = {
+                            description = [[
+                            https://github.com/golang/tools/tree/master/gopls
+
+                            Google's lsp server for golang.
+                            ]],
+                            default_config = {
+                                root_dir = [[root_pattern("go.work", "go.mod", ".git")]],
+                            },
+                        },
+                    }
+                end,
+            },
         }
 
     end,
