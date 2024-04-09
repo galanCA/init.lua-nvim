@@ -23,6 +23,7 @@ return {
                 "lua_ls",
                 "gopls",
                 "rust_analyzer",
+                "htmx-lsp"
                 -- "tsserver",
             },
 
