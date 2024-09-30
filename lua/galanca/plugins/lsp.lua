@@ -11,6 +11,9 @@ return {
         "hrsh7th/nvim-cmp",
         "L3MON4D3/LuaSnip",
         "saadparwaiz1/cmp_luasnip",
+        "mfussenegger/nvim-dap",
+        "jay-babu/mason-nvim-dap.nvim",
+        "rcarriga/nvim-dap-ui",
     },
     -- lazy = false,
     event = { "BufReadPre", "BufNewFile" },
@@ -35,28 +38,6 @@ return {
                         capabilities = require('cmp_nvim_lsp').default_capabilities()
                     }
                 end,
---                ["gopls"] = function ()
---                    print("load gopls")
---                    require("lspconfig").gopls.setup {
---                        on_attach = function()
---                            vim.keymaps.set("n", "K", vim.lsp.buf.hover, { buffer = 0 })
---                        end,
---                        capabilities = capabilities,
---                        cmd = {"gopls"},
---                        filetypes = { "go", "gomod", "gowork", "gotmpl" },
---                        root_dir = require("lspconfig/util").root_pattern("go.work", "go.mod", ".git"),
---                        docs = {
---                            description = [[
---                            https://github.com/golang/tools/tree/master/gopls
--- 
---                            Google's lsp server for golang.
---                            ]],
---                            default_config = {
---                                root_dir = [[root_pattern("go.work", "go.mod", ".git")]],
---                            },
---                        },
---                    }
---                end,
             },
 
             -- Completition
@@ -97,24 +78,17 @@ return {
                         { name = 'buffer' },
                     })
             }),
-
-            -- Use buffer source for `/` and `?` (if you enabled `native_menu`, this won't work anymore).
---            require("cmp").setup.cmdline({ '/', '?' }, {
---                mapping = require("cmp").mapping.preset.cmdline(),
---                sources = {
---                    { name = 'buffer' }
---                }
---            }),
--- 
---            -- Use cmdline & path source for ':' (if you enabled `native_menu`, this won't work anymore).
---            require("cmp").setup.cmdline(':', {
---                mapping = require("cmp").mapping.preset.cmdline(),
---                sources = require("cmp").config.sources({
---                    { name = 'path' }
---                }, {
---                        { name = 'cmdline' }
---                    })
---            }),
         }
+        
+        require("mason-nvim-dap").setup({
+            handlers = {
+                function(config)
+                    require('mason-nvim-dap').default_setup(config)
+                end,
+            },
+            --mapping = require("dap").mapping.preset.insert({
+                ---['<leader>b'] = require("dap").toggle_breakpoint(),
+            --}),
+        })
     end,
 }
