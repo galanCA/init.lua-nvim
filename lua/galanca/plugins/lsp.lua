@@ -20,10 +20,15 @@ return {
         require("mason").setup()
         require("mason-lspconfig").setup {
             ensure_installed = {
+                -- fun
                 "lua_ls",
                 "gopls",
                 "rust_analyzer",
-                "htmx-lsp"
+                -- work
+                "csharp_ls",
+                "clangd"
+                -- Not working
+                -- "htmx-lsp",
                 -- "tsserver",
             },
 
