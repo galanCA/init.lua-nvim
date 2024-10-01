@@ -39,3 +39,7 @@ vim.keymap.set("n", "<leader>r", "<cmd>!%:p %<CR>", { silent = true }) -- Makes 
 vim.keymap.set("n", "<leader><leader>", function()
     vim.cmd("so")
 end)
+
+vim.keymap.set("n", "<leader>L", function()
+    vim.cmd("Lazy")
+end)
