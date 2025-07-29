@@ -6,9 +6,9 @@ return {
         {"<leader>a", function() require("harpoon"):list():add() end, "n"},
         {"<leader>z", function() require("harpoon").ui:toggle_quick_menu(require("harpoon"):list() ) end, "n"},
         {"<C-h>", function() require("harpoon"):list():select(1) end, "n"},
-        {"<C-t>", function() require("harpoon"):list():select(2) end, "n"},
-        {"<C-n>", function() require("harpoon"):list():select(3) end, "n"},
-        {"<C-s>", function() require("harpoon"):list():select(4) end, "n"},
+        {"<C-j>", function() require("harpoon"):list():select(2) end, "n"},
+        {"<C-k>", function() require("harpoon"):list():select(3) end, "n"},
+        {"<C-l>", function() require("harpoon"):list():select(4) end, "n"},
     },
 
     config = function()
