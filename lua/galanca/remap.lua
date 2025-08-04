@@ -45,3 +45,8 @@ vim.keymap.set("n", "<leader>L", function()
     vim.cmd("Lazy")
 end)
 
+-- Check attached LSP clients for current buffer
+vim.api.nvim_create_user_command('CheckLSP', function()
+  print(vim.inspect(vim.lsp.get_active_clients({ bufnr = 0 })))
+end, {})
+

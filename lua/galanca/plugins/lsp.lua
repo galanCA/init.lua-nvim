@@ -7,7 +7,7 @@ return {
         "hrsh7th/cmp-nvim-lsp",
         "hrsh7th/cmp-buffer",
         "hrsh7th/cmp-path",
-        -- "hrsh7th/cmp-cmdline", -- Changes a lot
+        "hrsh7th/cmp-cmdline", -- Changes a lot
         "hrsh7th/nvim-cmp",
         "L3MON4D3/LuaSnip",
         "saadparwaiz1/cmp_luasnip",
@@ -28,7 +28,7 @@ return {
                 "gopls",
                 "rust_analyzer",
                 -- work
-                "csharp_ls",
+                -- "csharp_ls",
                 "clangd"
                 -- Not working
                 -- "htmx-lsp",
