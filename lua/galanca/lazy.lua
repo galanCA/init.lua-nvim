@@ -10,6 +10,10 @@ if not vim.loop.fs_stat(lazypath) then
   })
 end
 vim.opt.rtp:prepend(lazypath)
+vim.diagnostic.config({
+    virtual_text = true, -- Inline message
+    signs = true, -- gutter icon
+})
 
 -- require("lazy").setup(plugins, opts)
 
