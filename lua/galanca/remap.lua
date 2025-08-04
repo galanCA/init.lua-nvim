@@ -1,5 +1,5 @@
 vim.g.mapleader = " "
-vim.keymap.set("n", "<leader>pv", vim.cmd.Ex)
+vim.keymap.set("n", "<leader>di", vim.cmd.Ex)
 -- vim.keymap.set("i", "<C-Super>", "<ESC>")
 
 vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")
@@ -29,6 +29,7 @@ vim.keymap.set("n", "<leader>f", vim.lsp.buf.format)
 
 vim.keymap.set("n", "<C-k>", "<cmd>cnext<CR>zz")
 vim.keymap.set("n", "<C-j>", "<cmd>cprev<CR>zz")
+vim.keymap.set("n", "<leader>h", "<cmd>lua vim.diagnostic.open_float()<CR>")
 vim.keymap.set("n", "<leader>k", "<cmd>lnext<CR>zz")
 vim.keymap.set("n", "<leader>j", "<cmd>lprev<CR>zz")
 
@@ -43,3 +44,4 @@ end)
 vim.keymap.set("n", "<leader>L", function()
     vim.cmd("Lazy")
 end)
+
