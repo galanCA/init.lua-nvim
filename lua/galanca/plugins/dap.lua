@@ -15,6 +15,12 @@ return {
             require("dap-go").setup()
             require("nvim-dap-virtual-text").setup()
 
+            --dap.adapters.go = {
+                --id = 'dap-go',
+                --type = 'executable',
+                --command = vim.fn.exepath + ".local/share/nvim/mason/bin/OpenDebugAD7',
+            --}
+
             vim.keymap.set("n","<leader>b", dap.toggle_breakpoint)
             vim.keymap.set("n","<leader>gb", dap.run_to_cursor)
 
