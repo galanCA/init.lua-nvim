@@ -23,16 +23,25 @@ return {
         require("mason").setup()
         require("mason-lspconfig").setup {
             ensure_installed = {
-                -- fun
-                "lua_ls",
-                "gopls",
-                "rust_analyzer",
-                -- work
-                -- "csharp_ls",
-                "clangd"
-                -- Not working
-                -- "htmx-lsp",
-                -- "tsserver",
+                -- lsp
+                    -- fun
+                    "lua_ls",
+                    "gopls",
+                    "rust_analyzer",
+                    "htmx",
+                    "html",
+                    -- work
+                    "clangd",
+                    -- "ts-ls",
+                    -- "eslint-lsp",
+                    "csharp_ls",
+                -- dap
+                -- formaters
+                    -- "goimports",
+                    "stylua",
+                -- linting
+                    -- "golangci-lint",
+                    -- "selene"
             },
 
             -- Set up lspconfig.
@@ -84,7 +93,6 @@ return {
                     })
             }),
         }
-        
         require("mason-nvim-dap").setup({
             handlers = {
                 function(config)
